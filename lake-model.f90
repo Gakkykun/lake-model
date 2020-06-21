@@ -257,7 +257,7 @@ program lake
 
         if (i == N) then
             t(i, j+1) = t(i, j) + dt*B/A*(u_in*T_in - u_out*t(i, j)) + 2*s2*(t(i-1, j) - t(i, j)) - &
-            dt/(rho*C_heat)*yeta*phi_y 
+            dt/(rho*C_heat)*yeta*phi_y  !deviation of phi: yeta*phi_y
         end if
 
         if (t(i, j+1) < 0 ) then
