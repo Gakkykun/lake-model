@@ -9,7 +9,7 @@ program lake
             gamma_cy, gamma_py, gamma_ny, beta_y, gamma_oy, gamma_oc, yeta
     real :: elevation, Q_in, Q_out, V, phi_n, T_in, Chla_in, TOC_in, TP_in, TN_in, &
             DO_in, SS_in, u_in, u_out, Vw, month_c
-    real :: A, phi_y, fi, fp, Gy, Ry, kc, kb
+    real :: A, Average_area, phi_y, fi, fp, Gy, Ry, kc, kb
     real :: s1, s2, v1Chla, v2Chla, v1TOC, v2TOC, v1TP, v2TP, v1TN, v2TN, &
             v1DO, v2DO, v1SS, v2SS, v1T, v2T
     real, dimension(61, 5) :: MonitoringDataDaily
@@ -111,9 +111,10 @@ program lake
             month_c = MonitoringDataDaily(day, 5)
                         
             ! Horizontal and vertical velocities
-            u_in = Q_in/(B*L)        ! Inlet horizontal velocity [m/d]
-            u_out = Q_out/(B*L)      ! Outlet horizontal velocity [m/d] 
-            V = Q_out/A              ! Vertical velocity [m/d]
+            u_in = Q_in/(B*L)                   ! Inlet horizontal velocity [m/d]
+            u_out = Q_out/(B*L)                 ! Outlet horizontal velocity [m/d] 
+            Average_area = dAdy * N/2
+            V = Q_out/Average_area              ! Vertical velocity [m/d]
             
 
             ! Monitoring data - montyly average
